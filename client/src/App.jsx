@@ -1,9 +1,27 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+
+import Dashboard from "./pages/Dashboard";
+import CampaignGenerator from "./pages/CampaignGenerator";
+import History from "./pages/History";
+import KnowledgeBase from "./pages/KnowledgeBase";
+
 function App() {
   return (
-    <div>
-      <h1>MarketMind AI</h1>
-      <p>AI Research & Marketing Automation Platform</p>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+
+        <Route path="/generator" element={<CampaignGenerator />} />
+
+        <Route path="/history" element={<History />} />
+
+        <Route path="/knowledge" element={<KnowledgeBase />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
