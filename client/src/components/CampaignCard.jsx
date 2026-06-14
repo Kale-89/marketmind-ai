@@ -1,4 +1,4 @@
-function CampaignCard({ campaign }) {
+function CampaignCard({ campaign, onDelete }) {
   return (
     <div className="campaign-card">
       <h2>{campaign.business_name}</h2>
@@ -27,7 +27,17 @@ function CampaignCard({ campaign }) {
       <div className="buttons">
         <button>Generate AI</button>
 
-        <button>Delete</button>
+        <button
+          onClick={() => {
+            if (
+              window.confirm("Are you sure you want to delete this campaign?")
+            ) {
+              onDelete(campaign.id);
+            }
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );

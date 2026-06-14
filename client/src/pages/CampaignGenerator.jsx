@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../services/supabase";
+import toast from "react-hot-toast";
 
 function CampaignGenerator() {
   const [businessName, setBusinessName] = useState("");
@@ -17,32 +18,23 @@ function CampaignGenerator() {
 
       .insert({
         business_name: businessName,
-
         product_name: productName,
-
         target_audience: targetAudience,
-
         platform,
-
         tone,
       });
 
     if (error) {
-      alert(error.message);
+      toast.error(error.message);
 
       return;
     }
 
-    alert("Campaign saved!");
-
+    toast.success("Campaign saved successfully!");
     setBusinessName("");
-
     setProductName("");
-
     setTargetAudience("");
-
     setPlatform("Instagram");
-
     setTone("Professional");
   };
 

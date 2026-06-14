@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Navbar from "./components/Navbar";
-
 import Dashboard from "./pages/Dashboard";
 import CampaignGenerator from "./pages/CampaignGenerator";
 import History from "./pages/History";
@@ -10,6 +10,7 @@ import KnowledgeBase from "./pages/KnowledgeBase";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" />
       <Navbar />
 
       <Routes>
