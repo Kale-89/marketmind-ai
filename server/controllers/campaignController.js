@@ -1,4 +1,4 @@
-const campaignService = require("../services/campaignService");
+import campaignService from "../services/campaignService.js";
 
 async function getAllCampaigns(req, res) {
   try {
@@ -12,6 +12,4 @@ async function getAllCampaigns(req, res) {
   }
 }
 
-module.exports = {
-  getAllCampaigns,
-};
+export { getAllCampaigns };

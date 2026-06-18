@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 
 const router = express.Router();
 
-const { getAllCampaigns } = require("../controllers/campaignController");
+import { getAllCampaigns } from "../controllers/campaignController.js";
 
 router.get("/test", getAllCampaigns);
 
-module.exports = router;
+export default router;

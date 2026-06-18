@@ -1,4 +1,4 @@
-const supabase = require("../config/supabase");
+import { supabase } from "../config/supabase.js";
 
 async function getAllCampaigns() {
   const { data, error } = await supabase.from("campaigns").select("*");
@@ -24,7 +24,7 @@ async function getCampaignById(id) {
   return data;
 }
 
-module.exports = {
+export default {
   getAllCampaigns,
   getCampaignById,
 };
