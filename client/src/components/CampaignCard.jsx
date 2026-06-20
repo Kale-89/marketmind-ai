@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function CampaignCard({ campaign, onDelete }) {
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="campaign-card">
       <h2>{campaign.business_name}</h2>
@@ -25,18 +29,23 @@ function CampaignCard({ campaign, onDelete }) {
       </p>
 
       <div className="buttons">
-        <button>Generate AI</button>
+        <button disabled={loading}>
+          {loading ? "Generating..." : "Generate AI"}
+        </button>
 
         <button
-          onClick={() => {
-            if (
-              window.confirm("Are you sure you want to delete this campaign?")
-            ) {
-              onDelete(campaign.id);
-            }
-          }}
+          // onClick={handleGenerate}
+          disabled={loading}
+          className="generate-btn"
         >
-          Delete
+          {loading ? (
+            <>
+              <span className="spinner"></span>
+              Generating...
+            </>
+          ) : (
+            "Generate AI"
+          )}
         </button>
       </div>
     </div>

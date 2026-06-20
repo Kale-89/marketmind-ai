@@ -37,7 +37,7 @@ function History() {
     <div className="container">
       <h1>Campaign History</h1>
       {loading ? (
-        <div className="loading">loading....</div>
+        <div className="spinner"></div>
       ) : campaigns.length === 0 ? (
         <div className="empty-campaign">
           <p>No Campaign Yet!!!</p>

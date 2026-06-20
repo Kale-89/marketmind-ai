@@ -1,6 +1,6 @@
 import supabase from "../config/supabase.js";
 
-async function getAllCampaigns() {
+export async function getAllCampaigns() {
   const { data, error } = await supabase.from("campaigns").select("*");
 
   if (error) {
@@ -10,7 +10,7 @@ async function getAllCampaigns() {
   return data;
 }
 
-async function getCampaignById(id) {
+export async function getCampaignById(id) {
   const { data, error } = await supabase
     .from("campaigns")
     .select("*")
@@ -24,7 +24,22 @@ async function getCampaignById(id) {
   return data;
 }
 
-export default {
-  getAllCampaigns,
-  getCampaignById,
-};
+export async function updateCampaignContent(id, content) {
+  const updateData = {
+    ...content,
+    status: "generated",
+  };
+
+  const { data, error } = await supabase
+    .from("campaigns")
+    .update(updateData)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return data;
+}
