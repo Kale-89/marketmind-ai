@@ -133,4 +133,4 @@ npm run dev
 MSc Computer Science Student
 
 GitHub: https://github.com/Kale-89
-LinkedIn: linkedin.com/in/kalehiwot-mulugeta
+LinkedIn: https://linkedin.com/in/kalehiwot-mulugeta
