@@ -5,12 +5,13 @@ import toast from "react-hot-toast";
 
 function History() {
   const [campaigns, setCampaigns] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     getCampaigns();
   }, []);
 
   async function getCampaigns() {
+    setLoading(true);
     const { data, error } = await supabase
       .from("campaigns")
       .select("*")
@@ -48,6 +49,7 @@ function History() {
             key={campaign.id}
             campaign={campaign}
             onDelete={deleteCampaign}
+            getCampaigns={getCampaigns}
           />
         ))
       )}

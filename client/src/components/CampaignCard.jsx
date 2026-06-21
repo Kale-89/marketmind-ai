@@ -1,6 +1,7 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 
-function CampaignCard({ campaign, onDelete }) {
+function CampaignCard({ campaign, onDelete, getCampaigns }) {
   const [loading, setLoading] = useState(false);
 
   async function handleGenerate(id) {
@@ -11,10 +12,11 @@ function CampaignCard({ campaign, onDelete }) {
         method: "POST",
       });
 
-      await fetchCampaigns(); // reload campaigns
+      await getCampaigns(); // reload campaigns
     } catch (error) {
-      console.error(error);
+      toast.error("Content Generation Failed because of: " + error);
     } finally {
+      toast.success("Content Generation Successful!!!");
       setLoading(false);
     }
   }
@@ -43,10 +45,60 @@ function CampaignCard({ campaign, onDelete }) {
         <strong>Created:</strong>{" "}
         {new Date(campaign.created_at).toLocaleDateString()}
       </p>
+      <p>
+        {campaign.instagram_caption && (
+          <div className="generated-content">
+            <h4>Instagram Caption</h4>
+            <p>{campaign.instagram_caption}</p>
+          </div>
+        )}
+      </p>
+      <p>
+        {campaign.hashtags && (
+          <div className="generated-content">
+            <h4>Hashtags</h4>
+            <p>{campaign.hashtags}</p>
+          </div>
+        )}
+      </p>
+      <p>
+        {campaign.facebook_post && (
+          <div className="generated-content">
+            <h4>Facebook Post</h4>
+            <p>{campaign.facebook_post}</p>
+          </div>
+        )}
+      </p>
+      <p>
+        {campaign.linkedin_post && (
+          <div className="generated-content">
+            <h4>Linkedin Post</h4>
+            <p>{campaign.linkedin_post}</p>
+          </div>
+        )}
+      </p>
+      <p>
+        {campaign.email_subject && (
+          <div className="generated-content">
+            <h4>Email Subject</h4>
+            <p>{campaign.email_subject}</p>
+          </div>
+        )}
+      </p>
+      <p>
+        {campaign.email_body && (
+          <div className="generated-content">
+            <h4>Email</h4>
+            <p>{campaign.email_body}</p>
+          </div>
+        )}
+      </p>
 
       <div className="buttons">
         <button
-          onClick={handleGenerate}
+          onClick={() => {
+            handleGenerate(campaign.id);
+          }}
           disabled={loading}
           className="generate-btn"
         >
