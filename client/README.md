@@ -146,5 +146,5 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
 MSc Computer Science Student
 
-GitHub: https://github.com/YOUR_USERNAME
-LinkedIn: YOUR_LINKEDIN_URL
+GitHub: https://github.com/Kale-89
+LinkedIn: linkedin.com/in/kalehiwot-mulugeta
