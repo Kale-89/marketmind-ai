@@ -1,16 +1,150 @@
-# React + Vite
+# MarketMind AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MarketMind AI is a full-stack AI-powered marketing content generator that helps businesses create platform-specific marketing content using Google Gemini AI.
 
-Currently, two official plugins are available:
+Users can create campaigns, generate AI-powered marketing copy, store generated content in a database, and view campaign history through a modern React interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create marketing campaigns
+- Generate AI-powered marketing content
+- Store generated content in Supabase
+- View campaign history
+- Delete campaigns
+- Loading and empty-state UI
+- Platform-specific content generation
+- Automatic saving of AI-generated content
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+### Frontend
+
+- React
+- React Router
+- CSS
+- React Hot Toast
+
+### Backend
+
+- Node.js
+- Express.js
+
+### Database
+
+- Supabase
+
+### Artificial Intelligence
+
+- Google Gemini 2.5 Flash
+
+---
+
+## Project Architecture
+
+```text
+React Frontend
+      ↓
+Express API
+      ↓
+Supabase Database
+      ↓
+Gemini AI
+      ↓
+Generated Marketing Content
+```
+
+---
+
+## How It Works
+
+1. User creates a marketing campaign.
+2. Campaign information is stored in Supabase.
+3. User clicks "Generate AI".
+4. Express retrieves campaign details from the database.
+5. A dynamic prompt is generated.
+6. Gemini generates marketing content.
+7. The generated content is saved back to Supabase.
+8. React refreshes and displays the results.
+
+---
+
+## AI Workflow
+
+```text
+Campaign Data
+      ↓
+Prompt Builder
+      ↓
+Gemini API
+      ↓
+JSON Response
+      ↓
+Database Update
+      ↓
+Frontend Refresh
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/marketmind-ai.git
+cd marketmind-ai
+```
+
+### Client Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### Server Setup
+
+```bash
+cd server
+npm install
+npm run dev
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file inside the server folder:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+```
+
+---
+
+## Future Improvements
+
+- User authentication with Supabase Auth
+- Support for Facebook, LinkedIn, and Email generation
+- Content regeneration
+- Export generated content to PDF
+- Usage analytics dashboard
+- Workflow automation using n8n
+
+---
+
+## Author
+
+**Kalehiwot Mulugeta**
+
+MSc Computer Science Student
+
+GitHub: https://github.com/YOUR_USERNAME
+LinkedIn: YOUR_LINKEDIN_URL
