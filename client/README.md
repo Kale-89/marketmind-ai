@@ -115,20 +115,6 @@ npm install
 npm run dev
 ```
 
----
-
-## Environment Variables
-
-Create a `.env` file inside the server folder:
-
-```env
-GEMINI_API_KEY=your_gemini_api_key
-SUPABASE_URL=your_supabase_url
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-```
-
----
-
 ## Future Improvements
 
 - User authentication with Supabase Auth
