@@ -3,6 +3,22 @@ import { useState } from "react";
 function CampaignCard({ campaign, onDelete }) {
   const [loading, setLoading] = useState(false);
 
+  async function handleGenerate(id) {
+    setLoading(true);
+
+    try {
+      await fetch(`http://localhost:5000/api/generate/${id}`, {
+        method: "POST",
+      });
+
+      await fetchCampaigns(); // reload campaigns
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="campaign-card">
       <h2>{campaign.business_name}</h2>
@@ -29,12 +45,8 @@ function CampaignCard({ campaign, onDelete }) {
       </p>
 
       <div className="buttons">
-        <button disabled={loading}>
-          {loading ? "Generating..." : "Generate AI"}
-        </button>
-
         <button
-          // onClick={handleGenerate}
+          onClick={handleGenerate}
           disabled={loading}
           className="generate-btn"
         >
@@ -46,6 +58,18 @@ function CampaignCard({ campaign, onDelete }) {
           ) : (
             "Generate AI"
           )}
+        </button>
+
+        <button
+          onClick={() => {
+            if (
+              window.confirm("Are you sure you want to delete this campaign?")
+            ) {
+              onDelete(campaign.id);
+            }
+          }}
+        >
+          Delete
         </button>
       </div>
     </div>

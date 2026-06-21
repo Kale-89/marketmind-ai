@@ -20,7 +20,6 @@ export async function getCampaignById(id) {
   if (error) {
     throw error;
   }
-
   return data;
 }
 

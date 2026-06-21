@@ -31,6 +31,6 @@ router.get("/ai-test", async (req, res) => {
 
 router.get("/", getAllCampaigns);
 
-router.post("/generate/:id", generateCampaign);
+router.get("/generate/:id", generateCampaign);
 
 export default router;
