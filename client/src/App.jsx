@@ -7,6 +7,7 @@ import CampaignGenerator from "./pages/CampaignGenerator";
 import History from "./pages/History";
 import KnowledgeBase from "./pages/KnowledgeBase";
 import GeneratedContent from "./components/GeneratedContent";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
 
         <Route path="/knowledge" element={<KnowledgeBase />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
