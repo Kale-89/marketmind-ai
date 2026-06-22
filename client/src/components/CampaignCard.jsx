@@ -1,8 +1,12 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import "../styles/history.css";
+import "../styles/campaignCard.css";
+import { Link, useNavigate } from "react-router-dom";
 
 function CampaignCard({ campaign, onDelete, getCampaigns }) {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   async function handleGenerate(id) {
     setLoading(true);
@@ -18,6 +22,7 @@ function CampaignCard({ campaign, onDelete, getCampaigns }) {
     } finally {
       toast.success("Content Generation Successful!!!");
       setLoading(false);
+      navigate(`/generated/${id}`);
     }
   }
 
@@ -25,74 +30,40 @@ function CampaignCard({ campaign, onDelete, getCampaigns }) {
     <div className="campaign-card">
       <h2>{campaign.business_name}</h2>
 
-      <p>
-        <strong>Product:</strong> {campaign.product_name}
-      </p>
+      <div className="campaign-info">
+        <p>
+          <strong>Product:</strong> {campaign.product_name}
+        </p>
 
-      <p>
-        <strong>Audience:</strong> {campaign.target_audience}
-      </p>
+        <p>
+          <strong>Audience:</strong> {campaign.target_audience}
+        </p>
 
-      <p>
-        <strong>Platform:</strong> {campaign.platform}
-      </p>
+        <p>
+          <strong>Platform:</strong> {campaign.platform}
+        </p>
 
-      <p>
-        <strong>Tone:</strong> {campaign.tone}
-      </p>
+        <p>
+          <strong>Tone:</strong> {campaign.tone}
+        </p>
 
-      <p>
-        <strong>Created:</strong>{" "}
-        {new Date(campaign.created_at).toLocaleDateString()}
-      </p>
-      <p>
-        {campaign.instagram_caption && (
-          <div className="generated-content">
-            <h4>Instagram Caption</h4>
-            <p>{campaign.instagram_caption}</p>
-          </div>
-        )}
-      </p>
-      <p>
-        {campaign.hashtags && (
-          <div className="generated-content">
-            <h4>Hashtags</h4>
-            <p>{campaign.hashtags}</p>
-          </div>
-        )}
-      </p>
-      <p>
-        {campaign.facebook_post && (
-          <div className="generated-content">
-            <h4>Facebook Post</h4>
-            <p>{campaign.facebook_post}</p>
-          </div>
-        )}
-      </p>
-      <p>
-        {campaign.linkedin_post && (
-          <div className="generated-content">
-            <h4>Linkedin Post</h4>
-            <p>{campaign.linkedin_post}</p>
-          </div>
-        )}
-      </p>
-      <p>
-        {campaign.email_subject && (
-          <div className="generated-content">
-            <h4>Email Subject</h4>
-            <p>{campaign.email_subject}</p>
-          </div>
-        )}
-      </p>
-      <p>
-        {campaign.email_body && (
-          <div className="generated-content">
-            <h4>Email</h4>
-            <p>{campaign.email_body}</p>
-          </div>
-        )}
-      </p>
+        <p>
+          <strong>Created:</strong>{" "}
+          {new Date(campaign.created_at).toLocaleDateString()}
+        </p>
+      </div>
+
+      <div className="generation-status">
+        <span
+          className={
+            campaign.status === "generated"
+              ? "status-generated"
+              : "status-draft"
+          }
+        >
+          {campaign.status}
+        </span>
+      </div>
 
       <div className="buttons">
         <button
@@ -112,6 +83,15 @@ function CampaignCard({ campaign, onDelete, getCampaigns }) {
           )}
         </button>
 
+        {campaign.status === "generated" && (
+          <button
+            className="view-content"
+            onClick={() => navigate(`/generated/${campaign.id}`)}
+          >
+            View Content
+          </button>
+        )}
+
         <button
           onClick={() => {
             if (
@@ -120,6 +100,7 @@ function CampaignCard({ campaign, onDelete, getCampaigns }) {
               onDelete(campaign.id);
             }
           }}
+          className="delete-btn"
         >
           Delete
         </button>

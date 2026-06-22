@@ -1,0 +1,62 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.generation-status {
+  margin-top: 10px;
+}
+.status-generated,
+.status-draft {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+.status-generated {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-draft {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.campaign-card h2 {
+  margin-bottom: 15px;
+
+  color: #1f2937;
+}
+
+.campaign-info {
+  display: grid;
+  gap: 8px;
+}
+
+.generate-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.view-content {
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}

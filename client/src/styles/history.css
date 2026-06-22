@@ -1,0 +1,31 @@
+.status-generated {
+  background: #25d82e;
+  color: white;
+  font-weight: bold;
+  padding: 5px 5px;
+  border: 2px solid #25d82e;
+  border-radius: 20px;
+  font-variant-caps: all-small-caps;
+}
+
+.status-draft {
+  background: #ced501;
+  color: white;
+  font-weight: bold;
+  padding: 5px 5px;
+  border: 2px solid #ced501;
+  border-radius: 20px;
+  font-variant-caps: all-small-caps;
+}
+
+.buttons {
+  margin-top: 0;
+}
+
+.campaign-list {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 20px;
+}

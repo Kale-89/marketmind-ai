@@ -44,14 +44,16 @@ function History() {
           <p>No Campaign Yet!!!</p>
         </div>
       ) : (
-        campaigns.map((campaign) => (
-          <CampaignCard
-            key={campaign.id}
-            campaign={campaign}
-            onDelete={deleteCampaign}
-            getCampaigns={getCampaigns}
-          />
-        ))
+        <div className="campaign-list">
+          {campaigns.map((campaign) => (
+            <CampaignCard
+              key={campaign.id}
+              campaign={campaign}
+              onDelete={deleteCampaign}
+              getCampaigns={getCampaigns}
+            />
+          ))}
+        </div>
       )}
     </div>
   );

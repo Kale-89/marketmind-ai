@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import CampaignGenerator from "./pages/CampaignGenerator";
 import History from "./pages/History";
 import KnowledgeBase from "./pages/KnowledgeBase";
+import GeneratedContent from "./components/GeneratedContent";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/" element={<Dashboard />} />
 
         <Route path="/generator" element={<CampaignGenerator />} />
+
+        <Route path="/generated/:id" element={<GeneratedContent />} />
 
         <Route path="/history" element={<History />} />
 
