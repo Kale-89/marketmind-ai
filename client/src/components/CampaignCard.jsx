@@ -12,11 +12,11 @@ function CampaignCard({ campaign, onDelete, getCampaigns }) {
     setLoading(true);
 
     try {
-      await fetch(`http://localhost:5000/api/generate/${id}`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/api/generate/${id}`, {
         method: "POST",
       });
 
-      await getCampaigns(); // reload campaigns
+      await getCampaigns();
     } catch (error) {
       toast.error("Content Generation Failed because of: " + error);
     } finally {

@@ -9,13 +9,9 @@
 .status-generated,
 .status-draft {
   display: inline-block;
-
   padding: 6px 12px;
-
   border-radius: 999px;
-
   font-size: 0.85rem;
-
   font-weight: 600;
 }
 
@@ -40,23 +36,30 @@
   gap: 8px;
 }
 
-.generate-btn {
-  background: #2563eb;
+.generate-btn,
+.view-content,
+.delete-btn {
   color: white;
   border: none;
   border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+}
+
+.generate-btn {
+  background: #2563eb;
 }
 
 .view-content {
   background: #10b981;
-  color: white;
-  border: none;
-  border-radius: 8px;
 }
 
 .delete-btn {
   background: #ef4444;
-  color: white;
-  border: none;
-  border-radius: 8px;
+}
+
+.view-content:hover,
+.delete-btn:hover,
+.generate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
 }
