@@ -160,3 +160,8 @@ GitHub: https://github.com/Kale-89
 LinkedIn: https://www.linkedin.com/in/kalehiwot-mulugeta/
 
 Email: kalehiwotm@gmail.com
+
+## License
+
+This project is proprietary and all rights are reserved.
+See the LICENSE file for details.
