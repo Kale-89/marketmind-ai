@@ -2,6 +2,7 @@ import { useState } from "react";
 import { supabase } from "../services/supabase";
 import toast from "react-hot-toast";
 import "../styles/campaignGenerator.css";
+import { useNavigate } from "react-router-dom";
 
 function CampaignGenerator() {
   const [businessName, setBusinessName] = useState("");
@@ -10,6 +11,7 @@ function CampaignGenerator() {
   const [platform, setPlatform] = useState("Instagram");
   const [tone, setTone] = useState("Professional");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,12 +35,14 @@ function CampaignGenerator() {
     } finally {
       setLoading(false);
 
-      toast.success("Campaign saved successfully!");
       setBusinessName("");
       setProductName("");
       setTargetAudience("");
       setPlatform("Instagram");
       setTone("Professional");
+
+      navigate("/history");
+      toast.success("Campaign saved successfully!");
     }
   };
 

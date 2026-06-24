@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../services/supabase";
 import "../styles/dashboard.css";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [campaigns, setCampaigns] = useState([]);
@@ -55,9 +56,15 @@ function Dashboard() {
       : "N/A";
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
+      <div className="dashboard-header">
+        <h1>Dashboard</h1>
+        <Link className="create-btn" to="/generator">
+          <i className="bi bi-plus-lg"></i> Create Campaign
+        </Link>
+      </div>
 
-      <p>Welcome to MarketMind AI.</p>
+      <h4>Welcome to MarketMind</h4>
+      <p> AI Generate marketing campaigns and manage AI-powered content.</p>
 
       <div className="stats-grid">
         <div className="stat-card">

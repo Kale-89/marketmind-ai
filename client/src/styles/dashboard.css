@@ -2,6 +2,27 @@
   padding: 20px;
 }
 
+.dashboard h4 {
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-header .create-btn {
+  text-decoration: none;
+  width: 200px;
+  text-align: center;
+}
+
+.dashboard-header .bi {
+  margin-right: 2px;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

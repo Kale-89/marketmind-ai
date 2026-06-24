@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { supabase } from "../services/supabase";
 import toast from "react-hot-toast";
 import "../styles/generatedContent.css";
@@ -41,6 +41,11 @@ const GeneratedContent = () => {
 
   return (
     <div className="generated-container">
+      <div className="back-btn-container">
+        <Link className="back-btn" to="/history">
+          <i className="bi bi-arrow-left-short"></i>Back
+        </Link>
+      </div>
       {!campaign && !loading && (
         <div className="empty-campaign">Campaign Not Found!!!</div>
       )}
